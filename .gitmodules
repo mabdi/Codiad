@@ -1,0 +1,6 @@
+[submodule "plugins/Codiad-CodeGit"]
+	path = plugins/Codiad-CodeGit
+	url = https://github.com/Andr3as/Codiad-CodeGit.git
+[submodule "plugins/Codiad-Terminal"]
+	path = plugins/Codiad-Terminal
+	url = https://github.com/Fluidbyte/Codiad-Terminal.git
