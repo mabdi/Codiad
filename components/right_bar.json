@@ -1,5 +1,29 @@
 [
     {
+        "title": "CTF",
+        "admin": false,
+        "icon": null,
+        "onclick": null
+    },
+	{
+        "title": "Submit",
+        "admin": false,
+        "icon": "icon-flag",
+        "onclick": "codiad.ctf.submit();"
+    },
+    {
+        "title": "Reset",
+        "admin": false,
+        "icon": "icon-ccw",
+        "onclick": "codiad.ctf.reset();"
+    },
+    {
+        "title": "Save",
+        "admin": false,
+        "icon": null,
+        "onclick": null
+    },
+    {
         "title": "Save",
         "admin": false,
         "icon": "icon-install",
@@ -24,42 +48,6 @@
         "onclick": null
     },
     {
-        "title": "Administration",
-        "admin": true,
-        "icon": null,
-        "onclick": null
-    },
-    {
-        "title": "Projects",
-        "admin": true,
-        "icon": "icon-archive",
-        "onclick": "codiad.project.list();"
-    },
-    {
-        "title": "Users",
-        "admin": true,
-        "icon": "icon-users",
-        "onclick": "codiad.user.list();"
-    },
-    {
-        "title": "System",
-        "admin": true,
-        "icon": null,
-        "onclick": null
-    },
-    {
-        "title": "Marketplace",
-        "admin": true,
-        "icon": "icon-cloud",
-        "onclick": "codiad.market.list();"
-    },
-    {
-        "title": "Update Check",
-        "admin": true,
-        "icon": "icon-share",
-        "onclick": "codiad.update.check();"
-    },
-    {
         "title": "Account",
         "admin": false,
         "icon": null,
@@ -82,12 +70,6 @@
         "admin": false,
         "icon": null,
         "onclick": null
-    },
-    {
-        "title": "Help",
-        "admin": false,
-        "icon": "icon-help",
-        "onclick": "window.open('https://github.com/Codiad/Codiad/wiki');"
     },
     {
         "title": "Logout",

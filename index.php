@@ -21,12 +21,53 @@ if(isset($_SESSION['theme'])) {
   $theme = $_SESSION['theme'];
 }
 
+/////////////////////////////// @mabdi -- no need to install and login
+   $path = rtrim(str_replace("index.php", "", $_SERVER['SCRIPT_FILENAME']),"/");
+   $users = file_exists($path . "/data/users.php");
+   $projects = file_exists($path . "/data/projects.php");
+   $active = file_exists($path . "/data/active.php");
+
+   if(!$users && !$projects && !$active){
+      // Installer 
+      $rel = str_replace('index.php', '', $_SERVER['REQUEST_URI']);
+      $url = "http://".$_SERVER["HTTP_HOST"] . $rel.'components/install/process.php';
+      $fields = array(
+        'path' => $path,
+        'username' => "admin",
+        'password' => "123456",
+        'password_confirm' => "123456",
+        'project_name' => 'draft',
+        'project_path' => 'draft',
+        'timezone' => "Asia/Tehran"
+      );
+      $postvars = http_build_query($fields);
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_POST, count($fields));
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $postvars);
+      $result = curl_exec($ch);
+      curl_close($ch);
+      if($result!="success"){echo $result;}
+   }
+   if(!isset($_SESSION['user'])){
+
+      require_once('components/user/class.user.php');
+      $User = new User();
+      $User->username = "admin";
+      $User->password = "123456";
+      $User->lang = 'en';
+      $User->theme = "default";
+      $User->Authenticate();
+   }
+/////////////////////////////////
+
+
 ?>
 <!doctype html>
 
 <head>
     <meta charset="utf-8">
-    <title><?php i18n("CODIAD"); ?></title>
+    <title>Behsazan CTF</title>
     <?php
     // Load System CSS Files
     $stylesheets = array("jquery.toastmessage.css","reset.css","fonts.css","screen.css");
@@ -73,6 +114,7 @@ if(isset($_SESSION['theme'])) {
 </head>
 
 <body>
+    <!-- @mabdi: IDE Powered by <?php i18n("CODIAD"); ?> //-->
     <script>
     var i18n = (function(lang) {
         return function(word,args) {
