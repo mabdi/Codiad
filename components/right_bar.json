@@ -70,11 +70,5 @@
         "admin": false,
         "icon": null,
         "onclick": null
-    },
-    {
-        "title": "Logout",
-        "admin": false,
-        "icon": "icon-logout",
-        "onclick": "codiad.user.logout();"
     }
 ]
