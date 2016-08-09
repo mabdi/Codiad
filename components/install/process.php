@@ -148,7 +148,7 @@ define("BASE_URL", "' . $_SERVER["HTTP_HOST"] . $rel . '");
 define("THEME", "default");
 
 // ABSOLUTE PATH
-define("WHITEPATHS", BASE_PATH . ",/home");
+define("WHITEPATHS",  "");
 
 // SESSIONS (e.g. 7200)
 $cookie_lifetime = "0";
